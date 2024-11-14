@@ -33,7 +33,6 @@
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM1F-BpX660SBK3-Vw9O9f7AEvTAIH8rI&callback=initMap" async defer></script>
 
   <script>
-
     function initMap() {
       const iitLocation = { lat: 41.83671, lng: -87.6259602 };
       const map = new google.maps.Map(document.getElementById("googleMap"), {
@@ -57,6 +56,10 @@
       document.getElementById(tabName).classList.add('active-content');
       document.querySelector(`.tab[onclick="showTabContent('${tabName}')"]`).classList.add('active-tab');
     }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      showTabContent('home'); // Set the initial tab to 'home'
+    });
   </script>
 
 </body>
