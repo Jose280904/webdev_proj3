@@ -122,7 +122,6 @@ button:hover {
   opacity: 1;
 }
 
-/* Media Queries */
 @media (max-width: 768px) {
   ul.nav {
     flex-direction: column;
