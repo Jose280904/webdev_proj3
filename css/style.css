@@ -8,10 +8,10 @@ body {
 }
 
 img {
-    max-width: 50%;
-    height: auto;
-    margin: 0 auto;
-    display: block;
+  max-width: 50%;
+  height: auto;
+  margin: 0 auto;
+  display: block;
 }
 
 h1 {
@@ -96,6 +96,33 @@ p {
   font-size: 1rem;
 }
 
+/* Slider Styles */
+.slider {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: none;
+}
+
+button {
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+button:hover {
+  opacity: 1;
+}
+
+/* Media Queries */
 @media (max-width: 768px) {
   ul.nav {
     flex-direction: column;
@@ -104,5 +131,10 @@ p {
 
   #resume {
     width: 90vw;
+  }
+  
+  img {
+    width: 100%;
+    height: auto;
   }
 }
