@@ -1,26 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Map of IIT</title>
-  <style>
-    #map {
-      height: 400px;
-      width: 100%;
-    }
-  </style>
+  <title>Google Maps - IIT</title>
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-  <h1>Illinois Institute of Technology</h1>
-  <div id="map"></div>
+  <div class="tab-container">
+    <div class="tab active-tab" onclick="showTabContent('home')">Home</div>
+    <div class="tab" onclick="showTabContent('map')">Map</div>
+    <div class="tab" onclick="showTabContent('about')">About</div>
+  </div>
 
-  <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY_HERE&callback=initMap" async defer></script>
+  <div id="home" class="tab-content active-content">
+    <h1>Welcome to Illinois Institute of Technology</h1>
+    <p>Explore the campus and surrounding area.</p>
+  </div>
+
+  <div id="map" class="tab-content">
+    <h1>Illinois Institute of Technology Location</h1>
+    <div id="googleMap"></div>
+  </div>
+
+  <div id="about" class="tab-content">
+    <h1>About IIT</h1>
+    <p>The Illinois Institute of Technology (IIT) is a private research university in Chicago, Illinois. It's known for its emphasis on technology and engineering disciplines.</p>
+  </div>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM1F-BpX660SBK3-Vw9O9f7AEvTAIH8rI&callback=initMap" async defer></script>
+
   <script>
+
     function initMap() {
       const iitLocation = { lat: 41.83671, lng: -87.6259602 };
-      const map = new google.maps.Map(document.getElementById("map"), {
+      const map = new google.maps.Map(document.getElementById("googleMap"), {
         zoom: 17,
         center: iitLocation,
       });
@@ -29,6 +45,17 @@
         map: map,
         title: "Illinois Institute of Technology",
       });
+    }
+
+    function showTabContent(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.tab-content');
+
+      tabs.forEach(tab => tab.classList.remove('active-tab'));
+      contents.forEach(content => content.classList.remove('active-content'));
+
+      document.getElementById(tabName).classList.add('active-content');
+      document.querySelector(`.tab[onclick="showTabContent('${tabName}')"]`).classList.add('active-tab');
     }
   </script>
 
