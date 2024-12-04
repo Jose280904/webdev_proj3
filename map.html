@@ -9,7 +9,6 @@
 </head>
 <body>
 
-
   <ul class="nav">
     <li><a href="index.html">Resume</a></li>
     <li><a href="aboutMe.html">About Me</a></li>
@@ -17,52 +16,19 @@
     <li><a href="map.html">Map</a></li>
   </ul>
 
-  <div id="home" class="tab-content active-content">
-    <h1>Welcome to Illinois Institute of Technology</h1>
-    <p>Explore the campus and surrounding area.</p>
+  <h1>Google Maps</h1>
+  <div id="googleMap"></div>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="iitstyle.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM1F-BpX660SBK3-Vw9O9f7AEvTAIH8rI&callback=initMap"></script>
+	<script asyncsrc src="iitbasicmap.js"></script>
+</head>
+<body>
+  <div id="wrapper">
+    <div id="canvas"></div>
   </div>
-
-  <div id="map" class="tab-content">
-    <h1>Illinois Institute of Technology Location</h1>
-    <div id="googleMap"></div>
-  </div>
-
-  <div id="about" class="tab-content">
-    <h1>About IIT</h1>
-    <p>The Illinois Institute of Technology (IIT) is a private research university in Chicago, Illinois. It's known for its emphasis on technology and engineering disciplines.</p>
-  </div>
-
-  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBM1F-BpX660SBK3-Vw9O9f7AEvTAIH8rI&callback=initMap" async defer></script>
-
-  <script>
-    function initMap() {
-      const iitLocation = { lat: 41.83671, lng: -87.6259602 };
-      const map = new google.maps.Map(document.getElementById("googleMap"), {
-        zoom: 17,
-        center: iitLocation,
-      });
-      const marker = new google.maps.Marker({
-        position: iitLocation,
-        map: map,
-        title: "Illinois Institute of Technology",
-      });
-    }
-
-    function showTabContent(tabName) {
-      const tabs = document.querySelectorAll('.tab');
-      const contents = document.querySelectorAll('.tab-content');
-
-      tabs.forEach(tab => tab.classList.remove('active-tab'));
-      contents.forEach(content => content.classList.remove('active-content'));
-
-      document.getElementById(tabName).classList.add('active-content');
-      document.querySelector(`.tab[onclick="showTabContent('${tabName}')"]`).classList.add('active-tab');
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      showTabContent('home'); // Set the initial tab to 'home'
-    });
-  </script>
-
 </body>
 </html>
